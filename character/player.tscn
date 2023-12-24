@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://dgg06vifjtsnr"]
+
+[ext_resource type="Script" path="res://character/CharacterBody3D.gd" id="1_5tx6x"]
+[ext_resource type="Script" path="res://character/Camera3D.gd" id="2_01ns8"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_y8eel"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_5mmpf"]
+
+[node name="CharacterBody3D" type="CharacterBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4, 0)
+script = ExtResource("1_5tx6x")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1.4, 0, 0, 0, 1, 0, 0, 0)
+shape = SubResource("CapsuleShape3D_y8eel")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1.4, 0, 0, 0, 1, 0, 0, 0)
+mesh = SubResource("CapsuleMesh_5mmpf")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.809772, 0)
+script = ExtResource("2_01ns8")
+
+[node name="gun" type="Marker3D" parent="Camera3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.081969, -2.39471)
